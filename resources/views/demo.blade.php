@@ -58,7 +58,7 @@
 									<span class="before-heading">{{ $item_row2->subtitle }}</span>
 									<h2 style="font-size: 42px;" class="font-body ls1 t400">{{ $item_row2->title }}</h2>
 								</div>
-								<p style="color: #777;" class="lead">{{ $item_row2->content }}</p>
+								<p style="color: #777;" class="lead">{!! $item_row2->content !!}</p>
 								<a href="{{ $item_row2->url }}" class="section-more-link">{{ $item_row2->url_txt }} <i class="icon-angle-right"></i></a>
 							</div>
 
@@ -84,7 +84,7 @@
 									<span class="before-heading">{{ $item_row3->subtitle }}</span>
 									<h2 style="font-size: 42px;" class="font-body ls1 t400">{{ $item_row3->title }}</h2>
 								</div>
-								<p style="color: #777;" class="lead">{{ $item_row3->content }}</p>
+								<p style="color: #777;" class="lead">{!! $item_row3->content !!}</p>
 								<a href="{{ $item_row3->url }}" class="section-more-link">{{ $item_row3->url_txt }} <i class="icon-angle-right"></i></a>
 							</div>
 						</div>
@@ -196,7 +196,7 @@
 										offset-lg-1
 									@endif">
 									<h4 class="font-body" style="margin-bottom:15px;">{{ $item->title }}</h4>
-									<p>{{ $item->content }}</p>
+									<p>{!! $item->content !!}</p>
 								</div>
 							@endforeach
 
@@ -217,7 +217,7 @@
 											<img src="{{ $item->getPicUrl() }}" alt="Customer Testimonails">
 										</div>
 										<div class="testi-content">
-											<p>{{ $item->content }}</p>
+											<p>{!! $item->content !!}</p>
 											<div class="testi-meta">
 												{{ $item->title }}
 												<span>{{ $item->subtitle }}</span>
@@ -274,7 +274,7 @@
 									<div class="heading-block nobottomborder" style="margin-bottom: 15px;">
 										<h4 style="font-size: 16px;">{{ $item->title }}</h4>
 									</div>
-									<p class="" style="line-height: 26px;">{{ $item->content }}</p>
+									<p class="" style="line-height: 26px;">{!! $item->content !!}</p>
 								</div>
 							@endforeach
 						</div>

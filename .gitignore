@@ -5,6 +5,9 @@
 /public/include
 /public/images
 /public/demos
+/public/one-page
+/public/less
+/public/sass
 
 /storage/*.key
 /vendor
