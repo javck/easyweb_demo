@@ -93,11 +93,12 @@
                             <span class="signin">{{ __('voyager::generic.login') }}</span>
                         </button>
 
-                        <br>管理員帳密：admin/123456
 
                     </form>
 
                     <div style="clear:both"></div>
+
+                    <br>管理員帳密：admin/123456
 
                     @if(!$errors->isEmpty())
                     <div class="alert alert-red">
