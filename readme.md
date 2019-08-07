@@ -27,3 +27,8 @@ Easyweb是根據Laravel的Voyager套件加以優化而設計出的網頁系統�
 
 V1.0 示範如何從資料庫取得圖文並呈現於前台
 V1.1 示範如何從資料庫取得文章並呈現於前台(進行中...)
+
+##安裝
+
+Step 1.將CANVAS版型檔案解壓縮至public資料夾
+Step 2.確保有成功安裝npm，並執行npm run dev來壓縮js和css檔，生成all.js和all.css
