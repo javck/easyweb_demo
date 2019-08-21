@@ -6,6 +6,8 @@ use App\Article;
 use App\Element;
 use App\User;
 use App\Tag;
+use App\Cgy;
+use App\Item;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -24,18 +26,23 @@ class SiteController extends Controller
     public function renderDemoPage()
     {
         $item_slider = Element::where('page','demo')->where('position','slider')->where('enabled',1)->orderBy('sort','asc')->first();
+        $item_why_top = Element::where('page','demo')->where('position','why_top')->where('enabled',1)->orderBy('sort','asc')->first();
+        $items_why = Element::where('page','demo')->where('position','why')->where('enabled',1)->orderBy('sort','asc')->get();
         $item_row1 = Element::where('page','demo')->where('position','row1')->where('enabled',1)->orderBy('sort','asc')->first();
         $item_row2 = Element::where('page','demo')->where('position','row2')->where('enabled',1)->orderBy('sort','asc')->first();
         $item_row3 = Element::where('page','demo')->where('position','row3')->where('enabled',1)->orderBy('sort','asc')->first();
         $items_prices = Element::where('page','demo')->where('position','prices')->where('enabled',1)->orderBy('sort','asc')->get();
         $items_qna = Element::where('page','demo')->where('position','qna')->where('enabled',1)->orderBy('sort','asc')->get();
         $items_comment = Element::where('page','demo')->where('position','comments')->where('enabled',1)->orderBy('sort','asc')->get();
-        $items_chars = Element::where('page','demo')->where('position','chars')->where('enabled',1)->orderBy('sort','asc')->get();
         $item_row4 = Element::where('page','demo')->where('position','row4')->where('enabled',1)->orderBy('sort','asc')->first();
         $items_row5 = Element::where('page','demo')->where('position','row5')->where('enabled',1)->orderBy('sort','asc')->get();
         $item_gallery_top = Element::where('page','demo')->where('position','gallery_top')->where('enabled',1)->orderBy('sort','asc')->first();
         $items_gallery = Element::where('page','demo')->where('position','gallery')->where('enabled',1)->orderBy('sort','asc')->get();
-        return view('demo',compact('item_slider','item_row1','item_row2','item_row3','items_prices','items_qna','items_comment','items_chars','item_row4','items_row5','items_gallery','item_gallery_top'));
+        $item_how_top = Element::where('page','demo')->where('position','how_top')->where('enabled',1)->orderBy('sort','asc')->first();
+        $items_how = Element::where('page','demo')->where('position','how')->where('enabled',1)->orderBy('sort','asc')->get();
+        $item_call_to_action = Element::where('page','demo')->where('position','call_to_action')->where('enabled',1)->orderBy('sort','asc')->first();
+        $item_media = Element::where('page','demo')->where('position','media')->where('enabled',1)->orderBy('sort','asc')->first();
+        return view('demo',compact('item_slider','item_row1','item_row2','item_row3','items_prices','items_qna','items_comment','item_row4','items_row5','items_gallery','item_gallery_top','item_why_top','items_why','item_how_top','items_how','item_call_to_action','item_media'));
     }
 
     //首頁
@@ -108,16 +115,10 @@ class SiteController extends Controller
         return view('easyweb2::pages.about.vision', compact('item_content', 'item_top', 'items_slider', 'pageView'));
     }
 
-    //商店頁面
+    //商店示範頁面
     public function renderShopPage()
     {
-        //選擇所有預設的商品
-        $cgies = Cgy::where('parent_id',1)->where('enabled',true)->orderBy('sort','asc')->get();
-        $cgy_ids = Cgy::where('parent_id',1)->where('enabled',true)->pluck('id');
-        $items = Item::whereIn('cgy_id',$cgy_ids)->get();
-        $item_partner_pageTop = Element::where('page','home')->where('position','partner_top')->where('enabled',1)->orderBy('sort','asc')->first();
-        $items_partner = Element::where('page','home')->where('position','partner')->where('enabled',1)->orderBy('sort','asc')->get();
-        return view('easyweb2::pages.filter_shop',compact('cgies','items','item_partner_pageTop','items_partner'));
+        return view('shop');
     }
 
     //最新消息頁面
@@ -129,6 +130,18 @@ class SiteController extends Controller
         $articles = Article::where('cgy_id',$cgy_news->id)->where('status','published')->orderBy('sort','asc')->orderBy('created_at','desc')->simplePaginate(5);
         $articleQty = Article::where('cgy_id',$cgy_news->id)->where('status','published')->count();
         return view('easyweb2::pages.news',compact('articles','articleQty'));
+    }
+
+    //商店結帳範例程式============================================================
+    public function submitOrder($request)
+    {
+        // $inputs = $request->all();
+        // $order = Order::create($inputs);
+        // $pre_ary_items = explode(',' ,$inputs['items']);
+        // foreach ($pre_ary_items as $value){
+        //     $ary_item = explode('=',$value);
+        //     Order_Item::create(['order_id' => $order->id , 'item_id' => $ary_item[0] , 'qty' => $ary_item[1]]);
+        // }
     }
 
     //金流相關函式================================================================

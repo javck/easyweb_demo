@@ -14,6 +14,7 @@
 
 Route::group(['middleware' => 'javck.checkForMaintenanceMode'], function () {
 	Route::get('/', 'SiteController@renderDemoPage');
+	Route::get('/shop','SiteController@renderShopPage');
     Route::get('/contact', 'SiteController@renderContactUsPage');
 });
 

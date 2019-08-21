@@ -1,7 +1,10 @@
 <ul class="one-page-menu" @isset($options->data_easing) data-easing="{{ $options->data_easing }}" @endisset @isset($options->data_speed) data-speed="{{ $options->data_speed }}" @endisset @isset($options->data_offset) data-offset="{{ $options->data_offset }}" @endisset>
     @foreach($items as $menu_item)
     	@if ($menu_item->link() == '#modal-login')
-   			<li class="menu-item-emphasis"><a href="#modal-login" data-lightbox="inline"><div>{{ $menu_item->title }}</div></a></li>
+    		@if (!Auth::check())
+				<li class="menu-item-emphasis"><a href="#modal-login" data-lightbox="inline"><div>{{ $menu_item->title }}</div></a></li>
+    		@endif
+   			
     		@php
     			continue;
     		@endphp
