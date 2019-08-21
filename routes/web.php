@@ -20,3 +20,13 @@ Route::group(['middleware' => 'javck.checkForMaintenanceMode'], function () {
 
 Auth::routes();
 
+Route::group(['middleware'=>['web']],function () {
+    Auth::routes();
+    Route::get('login', ['uses' => 'Auth\VoyagerAuthController@login','as' => 'login']);
+    Route::post('login', ['uses' => 'Auth\VoyagerAuthController@postLogin','as' => 'postLogin']);
+    Route::post('logout', ['uses' => 'Auth\VoyagerAuthController@logout','as' => 'logout']);
+    Route::get('admin/login', ['uses' => 'Auth\VoyagerAuthController@login', 'as' => 'voyager.login']);
+    Route::post('admin/login', ['uses' => 'Auth\VoyagerAuthController@postLogin', 'as' => 'voyager.postlogin']);
+    Route::post('admin/logout', ['uses' => 'Auth\VoyagerAuthController@logout', 'as' => 'voyager.logout']);
+});
+
