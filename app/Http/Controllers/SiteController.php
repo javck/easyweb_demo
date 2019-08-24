@@ -100,7 +100,7 @@ class SiteController extends Controller
         $item_row1_right = Element::where('page', 'contact')->where('position', 'contact_info')->where('enabled', 1)->first();
         $sources = json_decode(setting('constant.sources'), true);
         $services = json_decode(setting('constant.services'), true);
-        return view('easyweb2::pages.contact', compact('services', 'item_row1_right', 'sources'));
+        return view('contact', compact('services', 'item_row1_right', 'sources'));
     }
 
     //關於我們
