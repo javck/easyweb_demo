@@ -22,9 +22,9 @@
 @section('body')
 	<!-- Modal -->
 			@include('easyweb2::partials.modal_login')
-			
+
 			@include('easyweb2::includes._chars',['item_top' => $item_why_top , 'items' => $items_why])
-				
+
 			<div class="line"></div>
 				<div class="container clearfix">
 
@@ -90,7 +90,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="line"></div><div class="clear"></div>
 
 				@include('easyweb2::includes._gallery',['item_top' => $item_gallery_top , 'items' => $items_gallery])
@@ -115,7 +115,7 @@
 
 				@include('easyweb2::includes._qna2',['items' => $items_qna])
 
-				@include('easyweb2::includes._feedback3',['items' => $items_comment])
+				{{--  @include('easyweb2::includes._feedback3',['items' => $items_comment])  --}}
 
 				<div class="clear"></div>
 

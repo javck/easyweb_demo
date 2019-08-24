@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="zh-TW">
 	<head>
-		
+
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="goblinLab" />
 		<meta name="description" content="{{ setting('site.description') }}" />
@@ -20,7 +20,7 @@
 
 		@yield('css')
 		<link rel="icon" href="{{Voyager::image(setting('site.favicon'))}}" type="image/png" sizes="16x16">
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<meta property="og:title" content="{{ setting('site.title') }}" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="{{URL::to('/')}}" />
@@ -29,7 +29,7 @@
 
 	<!-- Document Title
 	============================================= -->
-		
+
 		<title> @yield('page_title') | {{ setting('site.title') }} </title>
 
 	</head>

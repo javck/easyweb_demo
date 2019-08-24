@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Element;
-use App\User;
-use App\Tag;
 use App\Cgy;
-use App\Item;
+use App\Element;
+use App\Tag;
+use App\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SiteController extends Controller
 {
@@ -25,24 +24,24 @@ class SiteController extends Controller
     //首頁(示範頁)
     public function renderDemoPage()
     {
-        $item_slider = Element::where('page','demo')->where('position','slider')->where('enabled',1)->orderBy('sort','asc')->first();
-        $item_why_top = Element::where('page','demo')->where('position','why_top')->where('enabled',1)->orderBy('sort','asc')->first();
-        $items_why = Element::where('page','demo')->where('position','why')->where('enabled',1)->orderBy('sort','asc')->get();
-        $item_row1 = Element::where('page','demo')->where('position','row1')->where('enabled',1)->orderBy('sort','asc')->first();
-        $item_row2 = Element::where('page','demo')->where('position','row2')->where('enabled',1)->orderBy('sort','asc')->first();
-        $item_row3 = Element::where('page','demo')->where('position','row3')->where('enabled',1)->orderBy('sort','asc')->first();
-        $items_prices = Element::where('page','demo')->where('position','prices')->where('enabled',1)->orderBy('sort','asc')->get();
-        $items_qna = Element::where('page','demo')->where('position','qna')->where('enabled',1)->orderBy('sort','asc')->get();
-        $items_comment = Element::where('page','demo')->where('position','comments')->where('enabled',1)->orderBy('sort','asc')->get();
-        $item_row4 = Element::where('page','demo')->where('position','row4')->where('enabled',1)->orderBy('sort','asc')->first();
-        $items_row5 = Element::where('page','demo')->where('position','row5')->where('enabled',1)->orderBy('sort','asc')->get();
-        $item_gallery_top = Element::where('page','demo')->where('position','gallery_top')->where('enabled',1)->orderBy('sort','asc')->first();
-        $items_gallery = Element::where('page','demo')->where('position','gallery')->where('enabled',1)->orderBy('sort','asc')->get();
-        $item_how_top = Element::where('page','demo')->where('position','how_top')->where('enabled',1)->orderBy('sort','asc')->first();
-        $items_how = Element::where('page','demo')->where('position','how')->where('enabled',1)->orderBy('sort','asc')->get();
-        $item_call_to_action = Element::where('page','demo')->where('position','call_to_action')->where('enabled',1)->orderBy('sort','asc')->first();
-        $item_media = Element::where('page','demo')->where('position','media')->where('enabled',1)->orderBy('sort','asc')->first();
-        return view('demo',compact('item_slider','item_row1','item_row2','item_row3','items_prices','items_qna','items_comment','item_row4','items_row5','items_gallery','item_gallery_top','item_why_top','items_why','item_how_top','items_how','item_call_to_action','item_media'));
+        $item_slider = Element::where('page', 'demo')->where('position', 'slider')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $item_why_top = Element::where('page', 'demo')->where('position', 'why_top')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $items_why = Element::where('page', 'demo')->where('position', 'why')->where('enabled', 1)->orderBy('sort', 'asc')->get();
+        $item_row1 = Element::where('page', 'demo')->where('position', 'row1')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $item_row2 = Element::where('page', 'demo')->where('position', 'row2')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $item_row3 = Element::where('page', 'demo')->where('position', 'row3')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $items_prices = Element::where('page', 'demo')->where('position', 'prices')->where('enabled', 1)->orderBy('sort', 'asc')->get();
+        $items_qna = Element::where('page', 'demo')->where('position', 'qna')->where('enabled', 1)->orderBy('sort', 'asc')->get();
+        //$items_comment = Element::where('page','demo')->where('position','comments')->where('enabled',1)->orderBy('sort','asc')->get();
+        $item_row4 = Element::where('page', 'demo')->where('position', 'row4')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $items_row5 = Element::where('page', 'demo')->where('position', 'row5')->where('enabled', 1)->orderBy('sort', 'asc')->get();
+        $item_gallery_top = Element::where('page', 'demo')->where('position', 'gallery_top')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $items_gallery = Element::where('page', 'demo')->where('position', 'gallery')->where('enabled', 1)->orderBy('sort', 'asc')->get();
+        $item_how_top = Element::where('page', 'demo')->where('position', 'how_top')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $items_how = Element::where('page', 'demo')->where('position', 'how')->where('enabled', 1)->orderBy('sort', 'asc')->get();
+        $item_call_to_action = Element::where('page', 'demo')->where('position', 'call_to_action')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $item_media = Element::where('page', 'demo')->where('position', 'media')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        return view('demo', compact('item_slider', 'item_row1', 'item_row2', 'item_row3', 'items_prices', 'items_qna', 'item_row4', 'items_row5', 'items_gallery', 'item_gallery_top', 'item_why_top', 'items_why', 'item_how_top', 'items_how', 'item_call_to_action', 'item_media'));
     }
 
     //首頁
@@ -69,9 +68,9 @@ class SiteController extends Controller
         $items_prices = Element::where('page', 'home')->where('position', 'prices')->where('enabled', 1)->orderBy('sort', 'asc')->get();
         $items_fullChar = Element::where('page', 'home')->where('position', 'fullChars')->where('enabled', 1)->orderBy('sort', 'asc')->get();
         $item_callActionSubscribe = Element::where('page', 'home')->where('position', 'callActionSubscribe')->where('enabled', 1)->orderBy('sort', 'asc')->first();
-        $cities = json_decode( setting('constant.cities') , true);
-        $warehouses = json_decode( setting('constant.warehouses') , true);
-        $delivers = json_decode( setting('constant.delivers') , true);
+        $cities = json_decode(setting('constant.cities'), true);
+        $warehouses = json_decode(setting('constant.warehouses'), true);
+        $delivers = json_decode(setting('constant.delivers'), true);
 
         return view('index', compact('items_slider', 'items_spec', 'item_spec_pageTop', 'item_aboutUs', 'tags_shop', 'item_subscribe', 'items_fullChar', 'item_callActionSubscribe', 'item_prices_pageTop', 'items_prices', 'item_slider_top',
             'warehouses', 'cities', 'delivers'));
@@ -81,10 +80,10 @@ class SiteController extends Controller
     public function renderQnaPage()
     {
         //$q_modes = Constant::$q_modes;
-        $tags = Tag::where('enabled',1)->where('type','like','%qna%')->orderBy('sort','asc')->pluck('title','id');
-        $items_row1 = Element::where('page','qna')->where('position','row1')->where('enabled',1)->orderBy('sort','asc')->get();
-        $item_callAction = Element::where('page','all')->where('position','callAction')->where('enabled',1)->orderBy('sort','asc')->first();
-        return view('easyweb2::pages.qna',compact('tags','items_row1','item_callAction'));
+        $tags = Tag::where('enabled', 1)->where('type', 'like', '%qna%')->orderBy('sort', 'asc')->pluck('title', 'id');
+        $items_row1 = Element::where('page', 'qna')->where('position', 'row1')->where('enabled', 1)->orderBy('sort', 'asc')->get();
+        $item_callAction = Element::where('page', 'all')->where('position', 'callAction')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        return view('easyweb2::pages.qna', compact('tags', 'items_row1', 'item_callAction'));
     }
 
     //分類所有文章頁面
@@ -98,11 +97,10 @@ class SiteController extends Controller
     //聯絡我們頁面
     public function renderContactUsPage()
     {
-        $services = $services = json_decode(setting('constant.services'), true);
-        $item_row1_right = Element::where('page', 'all')->where('position', 'contact_info')->where('enabled', 1)->first();
+        $item_row1_right = Element::where('page', 'contact')->where('position', 'contact_info')->where('enabled', 1)->first();
         $sources = json_decode(setting('constant.sources'), true);
-        $pageView = 'contactPageView';
-        return view('easyweb2::pages.contact', compact('services', 'item_row1_right', 'sources', 'pageView'));
+        $services = json_decode(setting('constant.services'), true);
+        return view('easyweb2::pages.contact', compact('services', 'item_row1_right', 'sources'));
     }
 
     //關於我們
@@ -126,10 +124,10 @@ class SiteController extends Controller
     {
         Carbon::setLocale('zh-tw'); //設定Carbon的本地化
         //$top = Element::where('page','news')->where('position','top')->where('enabled',1)->first();
-        $cgy_news = Cgy::where('title','news')->where('enabled',true)->first();
-        $articles = Article::where('cgy_id',$cgy_news->id)->where('status','published')->orderBy('sort','asc')->orderBy('created_at','desc')->simplePaginate(5);
-        $articleQty = Article::where('cgy_id',$cgy_news->id)->where('status','published')->count();
-        return view('easyweb2::pages.news',compact('articles','articleQty'));
+        $cgy_news = Cgy::where('title', 'news')->where('enabled', true)->first();
+        $articles = Article::where('cgy_id', $cgy_news->id)->where('status', 'published')->orderBy('sort', 'asc')->orderBy('created_at', 'desc')->simplePaginate(5);
+        $articleQty = Article::where('cgy_id', $cgy_news->id)->where('status', 'published')->count();
+        return view('easyweb2::pages.news', compact('articles', 'articleQty'));
     }
 
     //商店結帳範例程式============================================================
@@ -150,7 +148,7 @@ class SiteController extends Controller
     public function createAllPayOrderPage(Request $request, $order_id)
     {
         $order = Order::findOrFail($order_id);
-        if($order->getOriginal('status') != 'created'){
+        if ($order->getOriginal('status') != 'created') {
             return '此訂單不需付款';
         }
 
@@ -201,14 +199,14 @@ class SiteController extends Controller
         $user_id = $inputs['user_id'];
         if ($payment == 'AllPay') {
             PaymentUtil::createAllPayOrder($request, $name, $quantity, $amount, $desc, $order_id, $url, $user_id);
-        }else{
+        } else {
             $formData = [
                 'UserId' => $user_id, // 用戶ID , Optional
                 'ItemDescription' => $desc,
                 'ItemName' => $name,
                 'TotalAmount' => $amount,
-                'PaymentMethod' => 'ALL' // ALL, Credit, ATM, WebATM
-            ];    
+                'PaymentMethod' => 'ALL', // ALL, Credit, ATM, WebATM
+            ];
             return $this->checkout->setPostData($formData)->send();
         }
 
@@ -235,6 +233,5 @@ class SiteController extends Controller
             });
         }
     }
-
 
 }
